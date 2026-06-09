@@ -103,8 +103,8 @@ class CosmicNoiseFilter:
         diffusion_factor = stabilized_sigma * abs(stochastic_increment)
         
         # Accumulates risk causality metrics based on Markov chain condition updates
-        self.causal_reachability_index += (drift_factor + 0.5 * diffusion_factor) * (1.0 / (1.0 + total_noise_energy := (dynamic_sigma**2)))
-
+        self.causal_reachability_index += (drift_factor + 0.5 * diffusion_factor) * (1.0 / (1.0 + (total_noise_energy := (dynamic_sigma**2))))
+      
         return {
             "timestamp": time.time(),
             "filtered_voltage_v": round(self.estimated_voltage, 6),
